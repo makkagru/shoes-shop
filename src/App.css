@@ -1,109 +1,114 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosansarmenian.css);
+
 .header-flex-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: #fff;
+  align-items: center;
   position: sticky;
-  top: 0;
-  text-align: center;
-  height: 50px;
   -webkit-transition: all 1s ease;
-  transition: all 0.8s ease;
+}
+
+#header {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  transition: all 0.2s ease;
 }
 
 
-.smaller {
-  display: flex;
-  justify-content: center;
+#header.smaller {
   background-color: #e5ffed;
   position: fixed;
-  top: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin: 0 0;
+  height: 80px;
   width: 100%;
-  height: 6%;
-  font-size: 12px;
   text-align: center;
 }
 
-.main {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-
-.button {
-  margin-bottom: 20px;
-} 
-
-.paragraph {
-  text-align: center;
-  font-size: 10px;
-}
-
-.Images {
-  height: 200px;
-  width: 200px;
-  border-radius: 20px;
-}
 
 
 .categories-flex-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  cursor: pointer;
-  justify-content: space-between;
-
-}
-
-.categories-item {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
-.categories {
-  display: flex;
-  cursor: pointer;
-  margin-left: 10px;
-  font-family: arial;
-  font-style: italic;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
-.header-flex-container h2:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.header-flex-container div a {
-  text-decoration: none;
-  color: black;
-  margin-left: 5px;
-
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: 90px;
-  margin-left: 90px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.flex-container div img {
-  border-radius: 20px;
-  margin-top: 30px;
-  margin-left: 20px;
-}
-
-.flex-container div h3 {
-  margin-bottom: 1px;
-}
-
-.flex-container div em {
-
   font-size: 10px;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 6px;
+  font-family: 'Noto Sans Armenian', sans-serif;
+  padding-bottom: 0;
+
 }
+
+.categories-flex-container :hover {
+  text-decoration: underline;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.tab {
+  margin-left: 10px;
+}
+
+.listing {
+}
+
+.listings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.listings img {
+  border-radius: 2px;
+}
+
+.listings h5 {
+  font-family: 'Noto Sans Armenian', sans-serif;
+  color: #111;
+  font-weight: 900;
+  font-size: 12px;
+
+}
+
+.listings p {
+  color: #7ed1ee;
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+.listings em {
+  font-family: 'Noto Sans Armenian', sans-serif;
+  color: #999;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.info {
+  display: flex;
+  height: 10px;
+}
+
+.moreInfo {
+  margin-bottom: 45px;
+  margin-top: 15px;
+}
+
+/*@font-face {
+font-family: "CustomFont";
+src: url("CustomFont.eot");
+src: url("CustomFont.woff") format("woff"),
+url("CustomFont.otf") format("opentype"),
+url("CustomFont.svg#filename") format("svg");
+}*/
+
+
+
+
+
+

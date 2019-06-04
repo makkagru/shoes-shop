@@ -1,17 +1,14 @@
 import React from 'react';
 import './App.css';
-import {Button} from 'reactstrap';
-import Loader from 'react-loader-spinner'
+import classNames from 'classnames/bind';
+import Loader from 'react-loader-spinner';
+import favicon from './favicon.jpg';
+import boss from './boss.svg';
 
 class Item extends React.Component {
   state = {
-    type: {},
-    firstTab: false,
-    secondTab: false,
-    thirdTab: false,
-    fourthTab: false,
+    selectedTab: 0,
     mainCategory: [],
-    mainBool: true,
     loading: false
   }
 
@@ -28,15 +25,13 @@ class Item extends React.Component {
         "projectId": "Uun-OVEBx"
       }
     });
-    // console.log(response)
     const res = await response.json();
-    // console.log(res);
     this.setState({mainCategory: res.data, loading: false})
   }
 
   scroll = () => {
     const distanceY = window.pageYOffset || document.documentElement.scrollTop,
-      shrinkOn = 30,
+      shrinkOn = 200,
       headerEl = document.getElementById("header");
 
     if (distanceY > shrinkOn) {
@@ -50,128 +45,204 @@ class Item extends React.Component {
     const {mainCategory: {categoryOptions}} = this.state;
     return(
       <div className="main">
-        <div className="header-flex-container" id="header">
-            <div>To other forms</div>
-        </div>
-        {this.state.loading &&
-        <Loader
-          className="loader" 
-          type="Puff"
-          color="#00BFFF"
-          height="100" 
-          width="100"
-        />  
-        }
-          {this.state.mainBool ? categoryOptions  && 
-            <div className="categories-flex-container">
-              <div className="categories-item"  onClick={() => this.setState({
-                  firstTab: true,
-                  secondTab: false,
-                  thirdTab: false,
-                  fourthTab: false,
-                  mainBool: false
-                  })}>
-                <span>{categoryOptions[0].properties.name}</span>
-                <img className="Images" src={categoryOptions[0].properties.photo} alt="img"></img>
-              </div>
-              <div className="categories-item"  onClick={() => this.setState({
-                  firstTab: false,
-                  secondTab: true,
-                  thirdTab: false,
-                  fourthTab: false,
-                  mainBool: false
-                  })}>
-                <span>{categoryOptions[1].properties.name}</span>
-                  <img className="Images"  src={categoryOptions[1].properties.photo} alt="img"></img>
-              </div>
-              <div className="categories-item"  onClick={() => this.setState({
-                  firstTab: false,
-                  secondTab: false,
-                  thirdTab: true,
-                  fourthTab: false,
-                  mainBool: false
-                  })}>
-                <span>{categoryOptions[2].properties.name}</span>
-                <img className="Images" src={categoryOptions[2].properties.photo} alt="img"></img>
-              </div>
-              <div className="categories-item"  onClick={() => this.setState({
-                  firstTab: false,
-                  secondTab: false,
-                  thirdTab: false,
-                  fourthTab: true,
-                  mainBool: false
-                })}>
-                <span>{categoryOptions[3].properties.name}</span>
-                <img className="Images" src={categoryOptions[3].properties.photo} alt="img"></img>
+          <div id="header">
+              <div className="header-flex-container">
+                <div>
+                  <img style={{width: '40px', height: '40px'}} src={boss} alt="img" />
                 </div>
+              </div>
+                <div className="categories-flex-container">
+              { categoryOptions && categoryOptions.map((item, index) => 
+                  <div key={item.id} className={classNames('tab', this.state.selectedTab === index && 'underlined')} onClick={() => {
+                    this.setState({
+                      selectedTab: index
+                    })
+                  }}>
+                    <span>{item.properties.name}</span>
+                  </div>
+              )}
+                </div>
+          </div>
+          {this.state.loading &&
+          <Loader
+            className="loader" 
+            type="Puff"
+            color="#00BFFF"
+            height="100" 
+            width="100"
+          />  
+          }
+           {this.state.selectedTab === 0 && categoryOptions && 
+             categoryOptions[0].items.map(item => (
+             <div key={item.id} className="categories-flex-container">
+                 {item.photos.map((photo) => (
+                  <div key={photo.id}>
+                    <img className="Images" src={photo.url} alt="img" />
+                    <p className="paragraph">{item.name}</p>
+                  </div>
+                 ))
+                }
+             </div>
+               ))
+           }
+
+           {this.state.selectedTab === 0 && 
+            <div className="listings">
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցեասֆվկա</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
+              <div className="listing">
+                <img src={favicon} alt="img" />
+                <div className="moreInfo">
+                  <div className="info">
+                    <h5>Անուն</h5>
+                    <p >$10.4040</p>
+                  </div>
+                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                </div>
+              </div>
             </div>
-           : (
-         <Button className="button" onClick={() => this.setState({
-          mainBool: true,
-          firstTab: false, 
-          secTab: false, 
-          thTab: false
-        })}>Back</Button>
-          )
 
-        }
-             
+           }
 
-         {this.state.firstTab && categoryOptions && 
-           categoryOptions[0].items.map(item => (
-           <div key={item.id} className="categories-flex-container">
-               {item.photos.map((photo) => (
-                <div key={photo.id}>
-                  <img className="Images" src={photo.url} alt="img" />
-                  <p className="paragraph">{item.name}</p>
-                </div>
+           {this.state.secondTab && categoryOptions && 
+             categoryOptions[1].items.map(item => (
+             <div key={item.id} className="categories-flex-container">
+                 {item.photos.map((photo) => (
+                  <div key={photo.id}>
+                    <img className="Images" src={photo.url} alt="img" />
+                    <p className="paragraph">{item.name}</p>
+                  </div>
+                 ))
+                }
+             </div>
                ))
-              }
-           </div>
-             ))
-         }
+           }
 
-         {this.state.secondTab && categoryOptions && 
-           categoryOptions[1].items.map(item => (
-           <div key={item.id} className="categories-flex-container">
-               {item.photos.map((photo) => (
-                <div key={photo.id}>
-                  <img className="Images" src={photo.url} alt="img" />
-                  <p className="paragraph">{item.name}</p>
-                </div>
+           {this.state.thirdTab && categoryOptions && 
+             categoryOptions[2].items.map(item => (
+             <div key={item.id} className="categories-flex-container">
+                 {item.photos.map((photo) => (
+                  <div key={photo.id}>
+                    <img className="Images" src={photo.url} alt="img" />
+                    <p className="paragraph">{item.name}</p>
+                  </div>
+                 ))
+                }
+             </div>
                ))
-              }
-           </div>
-             ))
-         }
+           }
 
-         {this.state.thirdTab && categoryOptions && 
-           categoryOptions[2].items.map(item => (
-           <div key={item.id} className="categories-flex-container">
-               {item.photos.map((photo) => (
-                <div key={photo.id}>
-                  <img className="Images" src={photo.url} alt="img" />
-                  <p className="paragraph">{item.name}</p>
-                </div>
+          {this.state.fourthTab && categoryOptions && 
+             categoryOptions[3].items.map(item => (
+             <div key={item.id} className="categories-flex-container">
+                 {item.photos.map((photo) => (
+                  <div key={photo.id}>
+                    <img className="Images" src={photo.url} alt="img" />
+                    <p className="paragraph">{item.name}</p>
+                  </div>
+                 ))
+                }
+             </div>
                ))
-              }
-           </div>
-             ))
-         }
-
-        {this.state.fourthTab && categoryOptions && 
-           categoryOptions[3].items.map(item => (
-           <div key={item.id} className="categories-flex-container">
-               {item.photos.map((photo) => (
-                <div key={photo.id}>
-                  <img className="Images" src={photo.url} alt="img" />
-                  <p className="paragraph">{item.name}</p>
-                </div>
-               ))
-              }
-           </div>
-             ))
-        }   
+          }   
           
         </div>
 
