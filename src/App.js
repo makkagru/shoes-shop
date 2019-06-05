@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import classNames from 'classnames/bind';
 import Loader from 'react-loader-spinner';
-import favicon from './favicon.jpg';
+import image from './image.jpg';
 import boss from './boss.svg';
 
 class Item extends React.Component {
@@ -48,12 +48,12 @@ class Item extends React.Component {
           <div id="header">
               <div className="header-flex-container">
                 <div>
-                  <img style={{width: '40px', height: '40px'}} src={boss} alt="img" />
+                  <img style={{width: '70px', height: '70px'}} src={boss} alt="img" />
                 </div>
               </div>
                 <div className="categories-flex-container">
               { categoryOptions && categoryOptions.map((item, index) => 
-                  <div key={item.id} className={classNames('tab', this.state.selectedTab === index && 'underlined')} onClick={() => {
+                  <div key={item.id} className={classNames('tab', this.state.selectedTab === index && 'bold')} onClick={() => {
                     this.setState({
                       selectedTab: index
                     })
@@ -89,115 +89,110 @@ class Item extends React.Component {
            {this.state.selectedTab === 0 && 
             <div className="listings">
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցեասֆվկա</em>
+                    <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
+                    <p>$10.4040</p>
+                </div>
+              </div>
+               <div className="listing">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
+                    <h5>Անուն</h5>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
               <div className="listing">
-                <img src={favicon} alt="img" />
-                <div className="moreInfo">
-                  <div className="info">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
                     <h5>Անուն</h5>
-                    <p >$10.4040</p>
-                  </div>
-                  <em>ՀասցեՀասցեՀասցեՀասցե</em>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
                 </div>
               </div>
+              <div className="listing">
+                <img style={{height: '400px', width: '300px'}} src={image} alt="img" />
+                <div>
+                    <h5>Անուն</h5>
+                    <p>$10.4040</p>
+                  <span>ՀասցեՀասցեՀասցեՀասցեասֆվկա</span>
+                </div>
+              </div>
+
             </div>
 
            }

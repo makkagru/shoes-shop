@@ -6,13 +6,13 @@
   justify-content: center;
   align-items: center;
   position: sticky;
-  -webkit-transition: all 1s ease;
+  /*-webkit-transition: all 1s ease;*/
 }
 
 #header {
   margin-top: 30px;
   margin-bottom: 30px;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 }
 
 
@@ -33,7 +33,7 @@
 .categories-flex-container {
   display: flex;
   flex-direction: row;
-  font-size: 10px;
+  font-size: 16px;
   justify-content: center;
   cursor: pointer;
   margin-top: 6px;
@@ -43,11 +43,11 @@
 }
 
 .categories-flex-container :hover {
-  text-decoration: underline;
+  color: #888;
 }
 
-.underlined {
-  text-decoration: underline;
+.bold {
+  font-weight: bold;
 }
 
 .tab {
@@ -55,6 +55,7 @@
 }
 
 .listing {
+  margin-bottom: 30px;
 }
 
 .listings {
@@ -67,26 +68,33 @@
   border-radius: 2px;
 }
 
+.listing div {
+  margin-top: 14px;
+}
+
 .listings h5 {
   font-family: 'Noto Sans Armenian', sans-serif;
   color: #111;
-  font-weight: 900;
-  font-size: 12px;
+  font-weight: bold;
+  font-size: 16px;
 
 }
 
 .listings p {
-  color: #7ed1ee;
-  font-weight: bold;
-  font-size: 12px;
-  margin-left: 20px;
+  /*color: #7ed1ee;*/
+  color: #ffd700;
+  font-weight: 990;
+  font-size: 16px;
+  margin-bottom: 4px;
+  margin-top: 4px;
 }
 
-.listings em {
+.listings span {
   font-family: 'Noto Sans Armenian', sans-serif;
-  color: #999;
-  font-size: 12px;
-  font-weight: bold;
+  color: #333;
+  font-size: 13px;
+  font-weight: 200;
+  margin-bottom: 10px;
 }
 
 .info {
