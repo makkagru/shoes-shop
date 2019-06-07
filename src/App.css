@@ -6,26 +6,27 @@
   justify-content: center;
   align-items: center;
   position: sticky;
-  /*-webkit-transition: all 1s ease;*/
 }
 
 #header {
   margin-top: 30px;
   margin-bottom: 30px;
   transition: all 0.1s ease;
+  padding-top: 0;
 }
 
-
 #header.smaller {
-  background-color: #e5ffed;
+  background-color: #fff;
   position: fixed;
   margin-top: 0;
   margin-bottom: 0;
   margin-left: 0;
-  margin: 0 0;
-  height: 80px;
+  height: 20%;
   width: 100%;
   text-align: center;
+  z-index: 999;
+  padding-bottom: 12px;
+  padding-top: 0;
 }
 
 
@@ -36,32 +37,51 @@
   font-size: 16px;
   justify-content: center;
   cursor: pointer;
-  margin-top: 6px;
+  margin-top: 25px;
   font-family: 'Noto Sans Armenian', sans-serif;
   padding-bottom: 0;
 
 }
 
+.categories-flex-container smaller {
+  margin-top: 1px;
+}
+
 .categories-flex-container :hover {
-  color: #888;
+  color: #999;
 }
 
 .bold {
   font-weight: bold;
 }
 
+.img :hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .tab {
-  margin-left: 10px;
+  margin-left: 40px;
 }
 
 .listing {
   margin-bottom: 30px;
+  width: 300px;
 }
 
 .listings {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.l h5 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  border: 1px solid red;
+  text-align: center;
 }
 
 .listings img {
@@ -89,6 +109,10 @@
   margin-top: 4px;
 }
 
+.flex {
+  display: flex;
+}
+
 .listings span {
   font-family: 'Noto Sans Armenian', sans-serif;
   color: #333;
@@ -96,25 +120,6 @@
   font-weight: 200;
   margin-bottom: 10px;
 }
-
-.info {
-  display: flex;
-  height: 10px;
-}
-
-.moreInfo {
-  margin-bottom: 45px;
-  margin-top: 15px;
-}
-
-/*@font-face {
-font-family: "CustomFont";
-src: url("CustomFont.eot");
-src: url("CustomFont.woff") format("woff"),
-url("CustomFont.otf") format("opentype"),
-url("CustomFont.svg#filename") format("svg");
-}*/
-
 
 
 
