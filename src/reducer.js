@@ -1,7 +1,8 @@
 const initialState = {
   selectedTab: 0,
   mainCategory: [],
-  loading: false
+  loading: false,
+  isOpen: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         selectedTab: action.payload
+      }
+    case 'HEADER_TOGGLE_STATUS':
+      return {
+       ...state,
+       isOpen: !state.isOpen
       }
 
     

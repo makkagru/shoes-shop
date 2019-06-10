@@ -36,8 +36,8 @@ export const changeIndex = (index) => ({
   payload: index
 });
 
-export const checkLoading = () =>  dispatch => {
+export const changeHeaderToggle = () => dispatch => {
   return dispatch({
-    type: 'CHECK_STATE_LOADING'
+    type: 'HEADER_TOGGLE_STATUS'
   })
 }
