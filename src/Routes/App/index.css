@@ -67,10 +67,20 @@
   /*width: 700px;*/
 }
 
+@media (min-width: 1125px) {
+  .categories-flex-container {
+    
+  }
+}
+
 @media (max-width: 767px) {
   .categories-flex-container {
     flex-direction: column;
     width: auto;
+    justify-content: center;
+  }
+  .tab {
+    margin-top: 10px;
   }
 }
 

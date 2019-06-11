@@ -2,16 +2,16 @@ import React from 'react';
 import './App.css';
 import classNames from 'classnames/bind';
 import Loader from 'react-loader-spinner';
-import boss from './images/boss.svg';
+import logo from './images/logo-large.png';
 import { connect } from 'react-redux';
 import { toggleLoading, getMain, changeIndex, changeHeaderToggle } from './action';
-import {Row, Col, Button, NavbarBrand, NavItem, Navbar, NavbarToggler, Nav, Collapse, CardBody, Card} from 'reactstrap';
+import { NavbarBrand, Nav, Navbar, NavbarToggler, Collapse } from 'reactstrap';
 
 class App extends React.Component {
 
 componentDidMount() {
     this.props.mainGet();
-    window.addEventListener("scroll", this.scroll);
+    // window.addEventListener("scroll", this.scroll);
   }
 
 //   scroll = () => {
@@ -28,10 +28,10 @@ componentDidMount() {
 //   }
 
   render() {
-    console.log(this.props);
     const {mainCategory: {categoryOptions}} = this.props.app;
+    console.log(categoryOptions);
     return(
-      <div className="main">
+      <main>
           {/* <div id="header"> */}
           {/*     <div className="header-flex-container"> */}
           {/*       <div> */}
@@ -52,7 +52,7 @@ componentDidMount() {
               {/*   </Row> */}
              <Navbar light  expand="md"  className="sticky-top">
                 <NavbarBrand>
-                  <img src={boss} alt="img" style={{width: '150px', height: '100px'}}/>
+                  <img src={logo} alt="img" style={{width: 'auto', height: '30px'}}/>
                 </NavbarBrand>
                 <NavbarToggler className="toggler" onClick={() => {
                   this.props.headerToggle()
@@ -60,18 +60,22 @@ componentDidMount() {
                 }} />
                 <Collapse isOpen={this.props.app.isOpen} navbar>
                   <Nav className="categories-flex-container">
-                    {categoryOptions && categoryOptions.map((item, index) => (
-                      <div key={item.id} className={classNames('tab', this.props.app.selectedTab === index && 'bold')} onClick={() => {
-                        this.props.indexChange(index);
-                        }}>
-                        <span>{item.properties.name}</span>
-                      </div>
-                      ))
-                     }
+                    {/* <Row >  */}
+                      {/* <Col xs={{size: '12'}}> */}
+                        {categoryOptions && categoryOptions.map((item, index) => (
+                          <div key={item.id} className={classNames('tab', this.props.app.selectedTab === index && 'bold')} onClick={() => {
+                            this.props.indexChange(index);
+                            console.log(item);
+                            }}>
+                            <span>{item.properties.name}</span>
+                          </div>
+                          ))
+                         }
+                      {/* </Col> */}
+                    {/* </Row> */}
                   </Nav>
                 </Collapse>
             </Navbar>
-          {/* </div> */}
           {this.props.app.loading &&
           <Loader
             className="loader" 
@@ -101,7 +105,7 @@ componentDidMount() {
              </div>
            }
 
-{/*            {this.props.app.selectedTab === 0 &&  */}
+{/*            {this.props.app.selectedTab === 0 && 
 {/*             <div className="listings"> */}
 {/*               <div className="listing"> */}
 {/*                 <div className="img"> */}
@@ -572,7 +576,7 @@ componentDidMount() {
 {/*             </div> */}
 {/*           } */}
 {/*            */}
-        </div>
+        </main>
 
       );
   }
