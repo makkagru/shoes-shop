@@ -2,7 +2,8 @@ const initialState = {
   selectedTab: 0,
   mainCategory: [],
   loading: false,
-  isOpen: false
+  isOpen: false,
+  modaIsOPen: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,7 +28,11 @@ const reducer = (state = initialState, action) => {
        ...state,
        isOpen: !state.isOpen
       }
-
+    case 'MODAL_TOGGLE':
+      return {
+        ...state,
+        modaIsOPen: !state.modaIsOPen
+      }
     
     default:
       return state

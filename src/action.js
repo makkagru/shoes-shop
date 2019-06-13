@@ -39,5 +39,11 @@ export const changeIndex = (index) => ({
 export const changeHeaderToggle = () => dispatch => {
   return dispatch({
     type: 'HEADER_TOGGLE_STATUS'
-  })
-}
+  });
+};
+
+export const modalToggle = () => dispatch => {
+  return dispatch({
+    type: 'MODAL_TOGGLE'
+  });
+};
