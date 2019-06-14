@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { toggleLoading, getMain, changeIndex, changeHeaderToggle, modalToggle } from '../../action';
 import toggle from '../../images/align-justify.svg';
 import cancel from '../../images/close-button.png';
+import android from '../../images/android-brands.svg';
+import ios from '../../images/apple-brands.svg';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 
 
@@ -14,9 +16,14 @@ class Home extends React.Component {
   componentDidMount() {
       this.props.mainGet();
     }
+
   toHome = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;  
+  }
+
+  openNewTab = (url) => {
+    var win = window.open(url, '_blank');
   }
 
   render() {
@@ -83,22 +90,47 @@ class Home extends React.Component {
            </div>
          }
               <Modal isOpen={this.props.app.modalIsOpen} fade={false}
-                       toggle={this.props.toggleModal} style={{width: "200px", display: "block", justifyContent: 'center'}}>
-                    <ModalHeader toggle={this.props.toggleModal}>
+                       toggle={() => {this.props.toggleModal()}} className="modal">
+                <div>
+                  <img className="modalCancel" src={cancel} alt="img" onClick={() => {
+                    this.props.toggleModal()
+                    }} />
+                </div>
+                <ModalBody>
+                  <h2 style={{textAlign: 'center'}}>
+                    Install our application in your divice
+                  </h2>
+                    <div className="modalButtons">
+                      <div>
+                        <button className="androidBtn" onClick={() => {
+                          this.openNewTab('https://www.google.com/');
+                          this.props.toggleModal();
+                        }}>
+                          <div>
+                            <img src={android} alt="img"  style={{width: '30px', height: 'auto'}} />
+                          </div>
+                          <div className="androidText">
+                            Install for Android
+                          </div>
+                        </button>
+                      </div>
+                      <div>
+                        <button className="iosBtn" onClick={() => {
+                          this.openNewTab('https://www.youtube.com');
+                          this.props.toggleModal();
+                        }}>
+                          <div>
+                            <img src={ios} alt="img" style={{width: '25px', height: 'auto'}} />
+                          </div>
+                          <div className="iosText">
+                            Install for Ios
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                </ModalBody>
+              </Modal>
 
-                    </ModalHeader>
-                    <ModalBody>
-                        <h1>
-                          Number of Artist: +374********
-                        </h1>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button onClick={this.props.modalToggle}>
-                            Ok
-                        </Button>
-                        <Button onClick={this.props.modalToggle}>Cancel</Button>
-                    </ModalFooter>
-                </Modal>
         </main>
 
       );

@@ -3,7 +3,7 @@ const initialState = {
   mainCategory: [],
   loading: false,
   isOpen: false,
-  modaIsOPen: false
+  modalIsOpen: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,7 +31,7 @@ const reducer = (state = initialState, action) => {
     case 'MODAL_TOGGLE':
       return {
         ...state,
-        modaIsOPen: !state.modaIsOPen
+        modalIsOpen: !state.modalIsOpen
       }
     
     default:
