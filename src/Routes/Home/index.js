@@ -1,14 +1,13 @@
 import React from 'react';
 import './index.css';
 import Loader from 'react-loader-spinner';
-import logo from '../../images/logo-large.png';
+import logo from '../../images/logo.png';
 import { connect } from 'react-redux';
 import { toggleLoading, getMain, changeIndex, changeHeaderToggle, modalToggle } from '../../action';
-import toggle from '../../images/align-justify.svg';
 import cancel from '../../images/close-button.png';
 import android from '../../images/android-brands.svg';
 import ios from '../../images/apple-brands.svg';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import { Modal, ModalBody } from 'reactstrap';
 
 
 class Home extends React.Component {
@@ -23,11 +22,10 @@ class Home extends React.Component {
   }
 
   openNewTab = (url) => {
-    var win = window.open(url, '_blank');
+    window.open(url, '_blank');
   }
 
   render() {
-    console.log(this.props)
     const {mainCategory: {categoryOptions}} = this.props.app;
     return(
       <main>
@@ -39,13 +37,36 @@ class Home extends React.Component {
               </div>
               <div>
                 {this.props.app.isOpen ? (
-                  <img style={{width: '30px', height: '30px'}} src={cancel} alt="img" className="toggle" onClick={() => {
+                  <div className="menu" style={{backgroundColor: '#fff'}} onClick={() => {
                     this.props.headerToggle();
-                  }} />
+                    }}>
+                    <div className="line">
+                      
+                    </div>
+                    <div className="line">
+                      
+                    </div>
+                    <div className="line">
+                      
+                    </div>
+                  </div>
                   ) : (
-                  <img src={toggle} alt="img" className="toggle" onClick={() => {
-                    this.props.headerToggle();
-                  }} />
+                  // <img src={toggle} alt="img" className="toggle" onClick={() => {
+                  //   this.props.headerToggle();
+                  // }} />
+                  <div className="menuClose" style={{backgroundColor: '#fff'}} onClick={() => {
+                    this.props.headerToggle()
+                    }}>
+                    <div className="line">
+                      
+                    </div>
+                    <div className="line">
+                      
+                    </div>
+                    <div className="line">
+                      
+                    </div>
+                  </div>
                   )
                 }
               </div>
@@ -81,7 +102,7 @@ class Home extends React.Component {
                       </div>
                       <div>
                         <h5>{item.name}</h5>
-                        <p>${item.price}</p>
+                        <p>{item.price}Դ</p>
                       </div>
                     </div>
                </div>
@@ -110,7 +131,7 @@ class Home extends React.Component {
                             <img src={android} alt="img"  style={{width: '30px', height: 'auto'}} />
                           </div>
                           <div className="androidText">
-                            Install for Android
+                            Android
                           </div>
                         </button>
                       </div>
@@ -123,7 +144,7 @@ class Home extends React.Component {
                             <img src={ios} alt="img" style={{width: '25px', height: 'auto'}} />
                           </div>
                           <div className="iosText">
-                            Install for Ios
+                            IOS
                           </div>
                         </button>
                       </div>
